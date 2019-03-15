@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>RegistrarUsuarioServlet</servlet-name>
+        <servlet-class>controlador.RegistrarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InicioSesion</servlet-name>
+        <servlet-class>controlador.InicioSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearNoticia</servlet-name>
+        <servlet-class>controlador.CrearNoticia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearNoticiaLaboral</servlet-name>
+        <servlet-class>controlador.CrearNoticiaLaboral</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrarUsuarioServlet</servlet-name>
+        <url-pattern>/RegistrarUsuarioServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InicioSesion</servlet-name>
+        <url-pattern>/InicioSesion.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearNoticia</servlet-name>
+        <url-pattern>/CrearNoticia.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearNoticiaLaboral</servlet-name>
+        <url-pattern>/CrearNoticiaLaboral.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
