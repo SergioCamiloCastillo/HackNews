@@ -16,6 +16,10 @@
         <servlet-name>CrearNoticiaLaboral</servlet-name>
         <servlet-class>controlador.CrearNoticiaLaboral</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscarNoticia</servlet-name>
+        <servlet-class>controlador.BuscarNoticia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUsuarioServlet</servlet-name>
         <url-pattern>/RegistrarUsuarioServlet.do</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>CrearNoticiaLaboral</servlet-name>
         <url-pattern>/CrearNoticiaLaboral.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarNoticia</servlet-name>
+        <url-pattern>/BuscarNoticia.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

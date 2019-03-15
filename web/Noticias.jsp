@@ -4,6 +4,7 @@
     Author     : User
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.io.BufferedReader"%>
 <%@page import="java.io.FileReader"%>
 <%@page import="java.io.File"%>
@@ -31,13 +32,18 @@
 
                 // Lectura del fichero
                 String noticias;
-
+                ArrayList lineas=new ArrayList();
                 while ((noticias = br.readLine()) != null) {
+                    lineas.add(noticias);
                     
-                    out.println(noticias + "</br>");
                     
 
                 }
+                for(int i=0;i<lineas.size();i++){
+                    String linea=(String) lineas.get(i);
+                    out.println(linea + "</br>");
+                    }
+                   
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
