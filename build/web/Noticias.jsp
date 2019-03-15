@@ -60,5 +60,10 @@
             }
 
         %>
+        <h3>Eliminar noticia</h3>
+        <form action="EliminarNoticia.do" method="POST">
+            <input type="text" name="txtEliminarNoticia" required="" placeholder="Coloque titulo"></br></br>
+            <input type="submit" value="Enviar">
+        </form>
     </body>
 </html>

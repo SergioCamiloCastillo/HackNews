@@ -70,10 +70,10 @@ public class RegistrarUsuarioServlet extends HttpServlet {
         FileWriter escribir = new FileWriter("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Usuarios.txt", true);
 
 //Escribimos en el archivo con el metodo write 
-        escribir.write(p.getNombre());
-        escribir.write(",");
-        escribir.write(p.getContrasena());
-        escribir.write(" ");
+        escribir.write(p.getNombre()+" ");
+        
+        escribir.write(p.getContrasena()+" ");
+        escribir.write("\r\n");
         
 //Cerramos la conexion
         escribir.close();

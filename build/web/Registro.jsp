@@ -58,25 +58,28 @@
             BufferedReader br = null;
 
             try {
+                String linea;
 
                 archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Usuarios.txt");
                 fr = new FileReader(archivo);
                 br = new BufferedReader(fr);
 
                 // Lectura del fichero
-                String linea;
-                out.print(datos);
+               
+                ArrayList lineass=new ArrayList();
                 while ((linea = br.readLine()) != null) {
-                    //out.println(linea);
+                    lineass.add(linea);
                     
-                        if (linea.indexOf(",") != -1) {
-                            if (linea.split(",")[0].equals(datos.get(0))) {
-                                out.println("Se encontro el usuario " + datos.get(0));
-                            }
-                        }
                     
 
                 }
+                
+                out.println("</br></br><h3>Usuario Registrados</h3>");
+                for(int i=0;i<lineass.size();i++){
+                    String lin=(String) lineass.get(i);
+                    
+                    out.println(lin + "</br>");
+                    }
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
