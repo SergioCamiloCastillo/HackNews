@@ -30,9 +30,9 @@
                 String noticiasLab;
 
                 while ((noticiasLab = br.readLine()) != null) {
-                    out.println("<a>");
+                
                     out.println(noticiasLab + "</br>");
-                    out.println("</a>");
+                   
 
                 }
             } catch (Exception e) {

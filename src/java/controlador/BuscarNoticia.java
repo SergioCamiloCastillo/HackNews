@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,26 +63,44 @@ public class BuscarNoticia extends HttpServlet {
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
-
+        File archivo1 = null;
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
         try {
 
             archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt");
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
-
+            archivo1 = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\NoticiasLaborales.txt");
+            fr1 = new FileReader(archivo1);
+            br1 = new BufferedReader(fr1);
             // Lectura del fichero
             String noticias;
+            String noticias1;
             ArrayList lineas = new ArrayList();
+            ArrayList lineas1 = new ArrayList();
             while ((noticias = br.readLine()) != null) {
                 lineas.add(noticias);
 
             }
             for (int i = 0; i < lineas.size(); i++) {
                 String linea = (String) lineas.get(i);
-                if(linea.contains(noticiaBuscar)){
-                    out.print(lineas.get(i));
+                if (linea.contains(noticiaBuscar)) {
+                    out.println(lineas.get(i) + "</br>");
                 }
-                
+
+                //out.println(linea + "</br>");
+            }
+            while ((noticias1 = br1.readLine()) != null) {
+                lineas1.add(noticias1);
+
+            }
+            for (int j = 0; j < lineas1.size(); j++) {
+                String linea1 = (String) lineas1.get(j);
+                if (linea1.contains(noticiaBuscar)) {
+                    out.println(lineas1.get(j));
+                } 
+
                 //out.println(linea + "</br>");
             }
 
