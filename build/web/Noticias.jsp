@@ -41,7 +41,7 @@
                 }
                 for(int i=0;i<lineas.size();i++){
                     String linea=(String) lineas.get(i);
-                    out.println(linea + "</br>");
+                    out.println(linea + "<a href='RealizarComentario.jsp'> Comentar</a></br>");
                     }
                    
             } catch (Exception e) {

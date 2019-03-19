@@ -24,6 +24,10 @@
         <servlet-name>EliminarNoticia</servlet-name>
         <servlet-class>controlador.EliminarNoticia</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarComentario</servlet-name>
+        <servlet-class>controlador.GuardarComentario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUsuarioServlet</servlet-name>
         <url-pattern>/RegistrarUsuarioServlet.do</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>EliminarNoticia</servlet-name>
         <url-pattern>/EliminarNoticia.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarComentario</servlet-name>
+        <url-pattern>/GuardarComentario.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

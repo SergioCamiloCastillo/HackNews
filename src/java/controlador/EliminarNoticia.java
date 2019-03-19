@@ -8,6 +8,7 @@ package controlador;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class EliminarNoticia extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         File archivo = null;
+        File archivo2 = null;
         FileReader fr = null;
         BufferedReader br = null;
         File archivo1 = null;
@@ -75,13 +77,24 @@ public class EliminarNoticia extends HttpServlet {
             String linea = (String) lineas.get(i);
             if (linea.contains(eliminarNoticia)) {
                 lineas.remove(i);
-                
-                getServletContext().getRequestDispatcher("/Noticias.jsp").forward(request, response);
-                break;
+
+                //getServletContext().getRequestDispatcher("/Noticias.jsp").forward(request, response);
             }
 
-            //out.println(linea + "</br>");
-        }
+            out.println(lineas.get(i)  + "</br>");
+
+            FileWriter escribir = new FileWriter("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt");
+
+//Escribimos en el archivo con el metodo write 
+            escribir.write(lineas.get(i) + " ");
+
+            escribir.write("\r\n");
+
+            archivo.renameTo(archivo);
+            escribir.close();
+
+            //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        }/*
         while ((noticias1 = br1.readLine()) != null) {
             lineas1.add(noticias1);
 
@@ -98,7 +111,7 @@ public class EliminarNoticia extends HttpServlet {
             }
 
             //out.println(linea + "</br>");
-        }
+        }*/
 
     }
 
