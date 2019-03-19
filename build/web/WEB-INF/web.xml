@@ -28,6 +28,14 @@
         <servlet-name>GuardarComentario</servlet-name>
         <servlet-class>controlador.GuardarComentario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarPregunta</servlet-name>
+        <servlet-class>controlador.RegistrarPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarNoticiaLaboral</servlet-name>
+        <servlet-class>controlador.EliminarNoticiaLaboral</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUsuarioServlet</servlet-name>
         <url-pattern>/RegistrarUsuarioServlet.do</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>GuardarComentario</servlet-name>
         <url-pattern>/GuardarComentario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarPregunta</servlet-name>
+        <url-pattern>/RegistrarPregunta.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarNoticiaLaboral</servlet-name>
+        <url-pattern>/EliminarNoticiaLaboral.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

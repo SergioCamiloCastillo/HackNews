@@ -1,10 +1,9 @@
 <%-- 
-    Document   : Comentarios
-    Created on : 14/03/2019, 12:23:11 PM
+    Document   : Preguntas
+    Created on : 19/03/2019, 12:36:51 PM
     Author     : User
 --%>
 
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.io.BufferedReader"%>
 <%@page import="java.io.FileReader"%>
 <%@page import="java.io.File"%>
@@ -13,33 +12,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Comentarios</title>
+        <title>JSP Page</title>
     </head>
     <body>
+        <h1>Preguntas</h1>
         <%
 
             File archivo = null;
-            FileReader fr2 = null;
-            BufferedReader br2 = null;
+            FileReader fr = null;
+            BufferedReader br = null;
 
             try {
 
-                archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Comentarios.txt");
-                fr2 = new FileReader(archivo);
-                br2 = new BufferedReader(fr2);
+                archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Preguntas.txt");
+                fr = new FileReader(archivo);
+                br = new BufferedReader(fr);
 
                 // Lectura del fichero
-                String comentarios;
-                ArrayList lineas = new ArrayList();
-                while ((comentarios = br2.readLine()) != null) {
-                    lineas.add(comentarios);
+                String preguntas;
+
+                while ((preguntas = br.readLine()) != null) {
+                
+                    out.println(preguntas + "<a href='RealizarComentario.jsp'> Comentar</a></br>");
+                   
 
                 }
-                for (int i = 0; i < lineas.size(); i++) {
-                    String linea = (String) lineas.get(i);
-                    out.print(linea+"</br>");
-                }
-
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -47,13 +44,14 @@
                 // que se cierra tanto si todo va bien como si salta 
                 // una excepcion.
                 try {
-                    if (null != fr2) {
-                        fr2.close();
+                    if (null != fr) {
+                        fr.close();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
+
         %>
         <a href="index.html">Ir a menu</a>
     </body>

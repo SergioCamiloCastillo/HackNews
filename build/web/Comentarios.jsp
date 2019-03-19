@@ -37,7 +37,7 @@
                 }
                 for (int i = 0; i < lineas.size(); i++) {
                     String linea = (String) lineas.get(i);
-                    out.println(linea+"</br>");
+                    out.print(linea+"</br>");
                 }
 
             } catch (Exception e) {
@@ -55,6 +55,6 @@
                 }
             }
         %>
-
+        <a href="index.html">Ir a menu</a>
     </body>
 </html>

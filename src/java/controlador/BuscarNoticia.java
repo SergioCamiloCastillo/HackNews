@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+import modelo.Noticia;
+import modelo.Persona;
 
 /**
  *
@@ -60,64 +62,11 @@ public class BuscarNoticia extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String noticiaBuscar = request.getParameter("txtBuscarNoticia");
-        File archivo = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        File archivo1 = null;
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
-        try {
+        Persona per = new Persona(null, null);
+        out.println(per.buscarNoticia(noticiaBuscar) + "</br>");
+        Persona per1 = new Persona(null, null);
+        out.println(per1.buscarNoticiaLaboral(noticiaBuscar) + "</br>");
 
-            archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt");
-            fr = new FileReader(archivo);
-            br = new BufferedReader(fr);
-            archivo1 = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\NoticiasLaborales.txt");
-            fr1 = new FileReader(archivo1);
-            br1 = new BufferedReader(fr1);
-            // Lectura del fichero
-            String noticias;
-            String noticias1;
-            ArrayList lineas = new ArrayList();
-            ArrayList lineas1 = new ArrayList();
-            while ((noticias = br.readLine()) != null) {
-                lineas.add(noticias);
-
-            }
-            for (int i = 0; i < lineas.size(); i++) {
-                String linea = (String) lineas.get(i);
-                if (linea.contains(noticiaBuscar)) {
-                    out.println(lineas.get(i) + "</br>");
-                }
-
-                //out.println(linea + "</br>");
-            }
-            while ((noticias1 = br1.readLine()) != null) {
-                lineas1.add(noticias1);
-
-            }
-            for (int j = 0; j < lineas1.size(); j++) {
-                String linea1 = (String) lineas1.get(j);
-                if (linea1.contains(noticiaBuscar)) {
-                    out.println(lineas1.get(j));
-                } 
-
-                //out.println(linea + "</br>");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // En el finally cerramos el fichero, para asegurarnos
-            // que se cierra tanto si todo va bien como si salta 
-            // una excepcion.
-            try {
-                if (null != fr) {
-                    fr.close();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
     }
 
     @Override

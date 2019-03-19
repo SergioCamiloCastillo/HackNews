@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Comentario;
 import modelo.Noticia;
+import modelo.Usuario;
 
 /**
  *
@@ -67,31 +68,20 @@ public class GuardarComentario extends HttpServlet {
         processRequest(request, response);
         String comentario = request.getParameter("txtComentario");
         java.util.Date fechas = new Date();
-        Comentario comen = new Comentario(0, 0, fechas, null, comentario);
-
-        ArrayList<String> comentarios = new ArrayList<String>();
-
-        FileWriter escribirC = new FileWriter("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Comentarios.txt", true);
-
-//Escribimos en el archivo con el metodo write 
-        escribirC.write(comen.getTexto() + " ");
-        escribirC.write(comen.getHoraComentario().toString()+"</br>");
-
-        escribirC.write("\r\n");
-        escribirC.close();
+        Usuario usu=new Usuario(null,null,null,null);
+        usu.enviarComentario(comentario, fechas);
+        
         getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 
     }
 
-
-
-/**
- * Returns a short description of the servlet.
- *
- * @return a String containing servlet description
- */
-@Override
-        public String getServletInfo() {
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

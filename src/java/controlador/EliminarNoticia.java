@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Usuario;
 
 /**
  *
@@ -49,69 +50,10 @@ public class EliminarNoticia extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         PrintWriter out = response.getWriter();
-
-        File archivo = null;
-        File archivo2 = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        File archivo1 = null;
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
         String eliminarNoticia = request.getParameter("txtEliminarNoticia");
-        archivo = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt");
-        fr = new FileReader(archivo);
-        br = new BufferedReader(fr);
-        archivo1 = new File("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\NoticiasLaborales.txt");
-        fr1 = new FileReader(archivo1);
-        br1 = new BufferedReader(fr1);
-        // Lectura del fichero
-        String noticias;
-        String noticias1;
-        ArrayList lineas = new ArrayList();
-        ArrayList lineas1 = new ArrayList();
-        while ((noticias = br.readLine()) != null) {
-            lineas.add(noticias);
-
-        }
-        for (int i = 0; i < lineas.size(); i++) {
-            String linea = (String) lineas.get(i);
-            if (linea.contains(eliminarNoticia)) {
-                lineas.remove(i);
-
-                //getServletContext().getRequestDispatcher("/Noticias.jsp").forward(request, response);
-            }
-
-            out.println(lineas.get(i)  + "</br>");
-
-            FileWriter escribir = new FileWriter("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt");
-
-//Escribimos en el archivo con el metodo write 
-            escribir.write(lineas.get(i) + " ");
-
-            escribir.write("\r\n");
-
-            archivo.renameTo(archivo);
-            escribir.close();
-
-            //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
-        }/*
-        while ((noticias1 = br1.readLine()) != null) {
-            lineas1.add(noticias1);
-
-        }
-        for (int j = 0; j < lineas1.size(); j++) {
-            String linea1 = (String) lineas1.get(j);
-            if (linea1.contains(eliminarNoticia)) {
-                lineas1.remove(j);
-                
-                getServletContext().getRequestDispatcher("/Noticias.jsp").forward(request, response);
-                out.close();
-                br1.close();
-                break;
-            }
-
-            //out.println(linea + "</br>");
-        }*/
+        Usuario eliminar=new Usuario(null,null,null,null);
+        eliminar.eliminarNoticia(eliminarNoticia);
+        getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 
     }
 

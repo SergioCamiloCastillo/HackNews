@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Noticia;
+import modelo.Usuario;
 
 /**
  *
@@ -64,21 +65,10 @@ public class CrearNoticia extends HttpServlet {
         String texto = request.getParameter("txtTexto");
         java.util.Date fecha = new Date();
         
+        Usuario us=new Usuario(null,null,null,null);
+        us.enviarNoticia(titulo, url, texto, fecha);
+
         
-
-        Noticia noti = new Noticia(0, titulo, url, texto, fecha, null);
-
-        ArrayList<String> noticias = new ArrayList<String>();
-
-        FileWriter escribir = new FileWriter("C:\\Users\\User\\Documents\\NetbeansProjects\\HackNews\\web\\Noticias.txt", true);
-       
-//Escribimos en el archivo con el metodo write 
-        escribir.write(noti.getTitulo() + " ");
-        escribir.write(noti.getUrl() + " ");
-        escribir.write(noti.getTexto() + " ");
-        escribir.write(noti.getFecha().toString());
-        escribir.write("\r\n");
-        escribir.close();
         getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 
     }

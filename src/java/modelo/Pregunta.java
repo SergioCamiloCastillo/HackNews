@@ -1,13 +1,25 @@
 
 package modelo;
 
+import java.util.Date;
+
 public class Pregunta {
     private int id_pregunta;
     private String pregunta;
+    private Date fecha;
 
-    public Pregunta(int id_pregunta, String pregunta) {
+    public Pregunta(int id_pregunta, String pregunta, Date fecha) {
         this.id_pregunta = id_pregunta;
         this.pregunta = pregunta;
+        this.fecha=fecha;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public int getId_pregunta() {
