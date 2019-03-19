@@ -75,7 +75,7 @@ public class GuardarComentario extends HttpServlet {
 
 //Escribimos en el archivo con el metodo write 
         escribirC.write(comen.getTexto() + " ");
-        escribirC.write(comen.getHoraComentario().toString()+" ");
+        escribirC.write(comen.getHoraComentario().toString()+"</br>");
 
         escribirC.write("\r\n");
         escribirC.close();

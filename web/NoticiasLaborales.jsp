@@ -31,7 +31,7 @@
 
                 while ((noticiasLab = br.readLine()) != null) {
                 
-                    out.println(noticiasLab + "</br>");
+                    out.println(noticiasLab + "<a href='RealizarComentario.jsp'> Comentar</a></br>");
                    
 
                 }
